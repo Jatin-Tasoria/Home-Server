@@ -49,6 +49,7 @@ The project is deployed on a Fedora Linux system using Docker containers and is 
 | Git & GitHub            | Version Control              |
 | Bash                    | Automation & Scripting       |
 | TCP/IP & LAN            | Networking                   |
+| Tailscale               | Service Verification Before Reverse Proxy Configuration |
 
 ---
 
@@ -58,6 +59,7 @@ The project is deployed on a Fedora Linux system using Docker containers and is 
 * 🎬 Self-hosted media streaming with Jellyfin
 * 📱 Automatic file backups from Android devices
 * 🔒 Secure remote administration using SSH
+* 🔑 Verification of services using TailScale
 * 🌐 Reverse proxy support with Nginx
 * 📂 Centralized storage management
 * 🐳 Docker-based deployment
@@ -75,7 +77,7 @@ The project is deployed on a Fedora Linux system using Docker containers and is 
 │       ├── Movies
 │       ├── TV Shows
 │       ├── Anime
-│       ├── Music
+│       ├── Anime Movies
 │       └── NEXTCLOUD
 │
 └── media
@@ -86,7 +88,7 @@ The project is deployed on a Fedora Linux system using Docker containers and is 
 ## 📁 Repository Structure
 
 ```text
-homelab/
+Home-Server/
 │
 ├── README.md
 ├── docs/
@@ -101,6 +103,14 @@ homelab/
 │   ├── update.sh
 │   ├── check-disks.sh
 │   └── backup.sh
+│
+├── compose/
+│   ├── nextcloud/
+│       └── docker-compose.yaml
+│   ├── nginx/
+│       └── docker-compose.yaml
+│   └── jellyfin/
+│       └── docker-compose.yaml
 │
 ├── screenshots/
 └── diagrams/
@@ -119,6 +129,7 @@ The `docs/` directory contains detailed documentation for:
 * Jellyfin deployment
 * Troubleshooting and maintenance
 
+The `Troubleshooting/` directory is for common error I encountered during building and deploying this project.
 ---
 
 ## 🎓 Skills Demonstrated
@@ -129,6 +140,7 @@ The `docs/` directory contains detailed documentation for:
 * Networking Fundamentals
 * Remote Server Administration
 * Reverse Proxy Configuration
+* Tunnelling through VPN
 * Bash Scripting
 * Git & GitHub
 * Documentation
@@ -144,6 +156,7 @@ The `docs/` directory contains detailed documentation for:
 * Explore CI/CD automation with Jenkins.
 * Integrate monitoring tools such as Grafana and Prometheus.
 * Expand the server with additional self-hosted services.
+* Create a website to monitor resources and managing containers.
 
 ---
 
