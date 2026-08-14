@@ -179,7 +179,7 @@ du -sh /srv/storage/*
 
 ---
 
-### 7. Boot Failure When HDD Is Disconnected
+## 7. Boot Failure When HDD Is Disconnected
 
 **Symptoms**
 
@@ -213,6 +213,16 @@ Apply the changes.
 ```bash
 sudo mount -a
 ```
+
+If **nofail** not added. Follow the below steps at boot:
+
+If the HDD is missing and systemd is waiting for it, you can often press **Ctrl+Alt+F2** and edit /etc/fstab from there.
+
+If you can't get a shell, boot into recovery mode or a Linux live USB, mount your root filesystem, and edit:
+
+/etc/fstab
+
+Add nofail to the problematic HDD entry.
 
 ---
 
