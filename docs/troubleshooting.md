@@ -269,3 +269,46 @@ journalctl -xe
 ```
 
 View recent system logs for mount-related errors.
+
+
+# jellyfin Issues
+
+## Jellyfin Cannot See Media
+
+Check that the HDD is mounted:
+
+```bash
+df -h /srv/storage
+```
+
+Check the directories:
+
+```bash
+ls -lah /srv/storage
+```
+
+Check the container volume:
+
+```bash
+docker inspect jellyfin
+```
+
+## Jellyfin Container Is Not Running
+
+```bash
+docker ps -a
+```
+
+Check the logs:
+
+```bash
+docker logs jellyfin
+```
+
+Restart the container:
+
+```bash
+docker compose restart
+```
+
+---
