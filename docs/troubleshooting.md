@@ -312,3 +312,57 @@ docker compose restart
 ```
 
 ---
+
+# nextcloud Issues
+
+## Nextcloud Container Not Running
+
+Check:
+
+```bash
+docker ps -a
+```
+
+View logs:
+
+```bash
+docker logs nextcloud
+```
+
+Restart:
+
+```bash
+docker compose restart
+```
+
+## Storage Not Available
+
+Check the HDD:
+
+```bash
+lsblk
+```
+
+Check the mount:
+
+```bash
+df -h
+```
+
+Mount filesystems configured in `/etc/fstab`:
+
+```bash
+sudo mount -a
+```
+
+## Permission Problems
+
+Check permissions:
+
+```bash
+ls -ld /srv/storage/NEXTCLOUD
+```
+
+If necessary, adjust permissions according to the user/group configuration of the Nextcloud container.
+
+---
