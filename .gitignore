@@ -1,0 +1,57 @@
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+credentials/
+
+# Nextcloud application data and configuration
+nextcloud/data/
+nextcloud/config/
+nextcloud/custom_apps/
+
+# Jellyfin application data
+jellyfin/config/
+jellyfin/cache/
+
+# Docker persistent data
+db/
+data/
+volumes/
+
+# Logs
+*.log
+logs/
+
+# Backups and database dumps
+backups/
+*.sql
+*.sql.gz
+*.dump
+*.tar
+*.tar.gz
+*.zip
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors and IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Python files (if used later)
+__pycache__/
+*.pyc
+
+# Temporary files
+tmp/
+temp/
+*.tmp
