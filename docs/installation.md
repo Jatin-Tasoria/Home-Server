@@ -142,3 +142,130 @@ mkdir -p /srv/storage/NEXTCLOUD
 ```
 
 ---
+
+# Step 6: Deploy Nextcloud
+
+Create the project directory.
+
+```bash
+mkdir ~/nextcloud
+cd ~/nextcloud
+```
+
+Create the Docker Compose configuration.
+
+```bash
+nano docker-compose.yml
+```
+
+Start the service.
+
+```bash
+docker compose up -d
+```
+
+Verify.
+
+```bash
+docker ps
+```
+
+---
+
+# Step 7: Deploy Jellyfin
+
+Create the project directory.
+
+```bash
+mkdir ~/jellyfin
+cd ~/jellyfin
+```
+
+Create the Docker Compose configuration.
+
+```bash
+nano docker-compose.yml
+```
+
+Start the service.
+
+```bash
+docker compose up -d
+```
+
+Verify.
+
+```bash
+docker ps
+```
+
+---
+
+## Step 8: Verify Services Using Tailscale
+
+Before configuring a reverse proxy, ensure that all services are accessible through the Tailscale network.
+
+### Install Tailscale
+
+```bash
+curl -fsSL https://tailscale.com/install.sh | sh
+```
+
+Bring the server online.
+
+```bash
+sudo tailscale up
+```
+
+View the assigned Tailscale IP address.
+
+```bash
+tailscale ip -4
+```
+
+Check the connection status.
+
+```bash
+tailscale status
+```
+
+### Verify Nextcloud
+
+Open a web browser on another device connected to the same Tailscale network and navigate to:
+
+```text
+http://<TAILSCALE_IP>:<NEXTCLOUD_PORT>
+```
+
+Confirm that the Nextcloud login page loads successfully.
+
+### Verify Jellyfin
+
+Open:
+
+```text
+http://<TAILSCALE_IP>:<JELLYFIN_PORT>
+```
+
+Confirm that the Jellyfin dashboard is accessible.
+
+### Verify SSH
+
+Test remote administration using SSH.
+
+```bash
+ssh <username>@<TAILSCALE_IP>
+```
+
+### Expected Outcome
+
+Before proceeding to the reverse proxy configuration:
+
+* ✓ Tailscale reports the server as connected.
+* ✓ Nextcloud is accessible through the Tailscale IP address.
+* ✓ Jellyfin is accessible through the Tailscale IP address.
+* ✓ SSH connectivity is working.
+
+If all checks are successful, continue with the Nginx reverse proxy configuration.
+
+---
